@@ -1,0 +1,145 @@
+{%load static%}}
+<!--
+Template Name: Chillaid
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>HEALTH CARE</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{%static 'layout/styles/layout.css'%}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear">
+    <div id="logo" class="fl_left">
+      <!-- ################################################################################################ -->
+      <h1 class="logoname"><a href="/">HEALTH CARE</a></h1>
+      <!-- ################################################################################################ -->
+    </div>
+    <nav id="mainav" class="fl_right">
+      <!-- ################################################################################################ -->
+      <ul class="clear">
+        <li class="active"><a href="/">Home</a></li>
+<!--        <li><a class="drop" href="#">Pages</a>-->
+<!--          <ul>-->
+<!--            <li><a href="pages/gallery.html">Gallery</a></li>-->
+<!--            <li><a href="pages/full-width.html">Full Width</a></li>-->
+<!--            <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>-->
+<!--            <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>-->
+<!--            <li><a href="pages/basic-grid.html">Basic Grid</a></li>-->
+<!--            <li><a href="pages/font-icons.html">Font Icons</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+
+
+
+      </ul>
+
+<style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+      <!-- ################################################################################################ -->
+    </nav>
+  </header>
+</div>
+
+
+<div class="container-fluid">
+
+
+<div class="row">
+    <div class="col-md-6">
+
+
+
+    <form action="booking" method="post">
+        {% csrf_token %}
+      <div class="form-group">
+    <input type="text" class="form-control" name="username" placeholder="Name"><br>
+    </div>
+        <br>
+        <div class="form-group">
+    <input type="email" class="form-control" name="email" placeholder="Enter your Email"><br>
+    </div>
+        <br>
+<div class="form-group">
+    <input type="text" class="form-control" name="depar" placeholder="Enter which department you want to book"><br>
+     </div>
+
+        <div class="form-group">
+    <input type="text" class="form-control" name="doc" placeholder="Doctor Name"><br>
+     </div>
+
+     <div class="form-group">
+    <input type="date" class="form-control" name="date" placeholder="Appointment Date"><br>
+     </div>
+<div class="dropdown">
+  <button class="dropbtn">Department</button>
+     {%for i in dep%}
+
+  <div class="dropdown-content">
+
+      {{i.name}}
+  </div>
+    {%endfor%}
+</div>
+    <button type="submit" class="btn btn-primary" > Book Now</button>
+
+
+</form>
+</div>
+    {%for message in messages%}
+    <h5>{{message}}</h5>
+</div>
+    {%endfor%}
+ </div>
+

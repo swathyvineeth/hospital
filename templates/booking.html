@@ -1,0 +1,118 @@
+{%load static%}}
+<!--
+Template Name: Chillaid
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>HEALTH CARE</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{%static 'layout/styles/layout.css'%}" rel="stylesheet" type="text/css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #111785;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #174857;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #291e1e;
+  padding: 30px;
+}
+</style>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear">
+    <div id="logo" class="fl_left">
+      <!-- ################################################################################################ -->
+      <h1 class="logoname"><a href="/">HEALTH CARE</a></h1>
+      <!-- ################################################################################################ -->
+    </div>
+    <nav id="mainav" class="fl_right">
+      <!-- ################################################################################################ -->
+      <ul class="clear">
+        <li class="active"><a href="/">Home</a></li>
+
+      </ul>
+    </nav>
+  </header>
+    <h3>BOOK HERE...</h3>
+
+<div class="container">
+  <form action="booking">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Your name..">
+
+     <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your Email..">
+
+     <label for="mobile">Mobile Number</label>
+      <input type="number" id=mobile name="mobile" placeholder="Your Mobile Number..">
+
+
+    <label for="depar">Departments</label>
+
+     <select id="depar" name="depar">
+        {%for i in dep%}
+      <option value="{{i.name}}">{{i.name}}</option>
+      {%endfor%}
+    </select>
+
+
+     <label for="doct">Doctors</label>
+    <select id="doct" name="doctor">
+         {%for i in doc%}
+      <option value="doct">{{i.name}}</option>
+       {%endfor%}
+    </select>
+
+     <label for="date">Date</label>
+      <input type="date" id=date name="date" placeholder="Your appointment date Number..">
+<!--    <label for="subject">Subject</label>-->
+<!--    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>-->
+    <input type="submit" value="Book Now">
+  </form>
+</div>
+  </div>
+<div>
+{%for message in messages%}
+    <h5>{{message}}</h5>
+{%endfor%}
+  </div>
+
+</body>
+
+
